@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio6</title>
+</head>
+
+<body>
+    <script>
+        let mes=prompt("Introduce un mes del año")-1;
+        getcumplanos(generarCumpleanos(),mes);
+
+        function getcumplanos(mCumpleanos,mes) {
+            let aSalida=[];
+            for (const iterator of mCumpleanos.entries()) {
+                if(mes==iterator[1].getMonth()){
+                    document.write(iterator+"<br/>");
+                }
+                console.log(iterator);
+            }
+            return aSalida;
+        }
+        function generarCumpleanos() {
+            let mCumpleanos = new Map();
+            let anyo = null;
+            let mes = null;
+            let dia = null;
+            let fechaNac = null;
+            for (let index = 1; index <= 100; index++) {
+                anyo = parseInt(Math.random() * 41) + 1980;
+                mes = parseInt(Math.random() * 12);
+                if (mes == 0 | mes == 2 | mes == 4 | mes == 6 | mes == 7 | mes == 9 | mes == 11) {
+                    dia = parseInt(Math.random() * 31);
+                } else {
+                    if (mes == 1) {
+                        if (anyo % 4 == 0) {
+                            dia = parseInt(Math.random() * 29);
+                        } else {
+                            dia = parseInt(Math.random() * 28);
+                        }
+                    } else {
+                        dia = parseInt(Math.random() * 30);
+                    }
+                }
+                fechaNac = new Date(anyo, mes, dia);
+                mCumpleanos.set(index,fechaNac);
+            }
+            return mCumpleanos;
+        }
+    </script>
+</body>
+
+</html>

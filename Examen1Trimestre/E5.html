@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio5 David Aparicio</title>
+</head>
+
+<body>
+    <script>
+        let nombr = false;
+        let tlf = false;
+        let pass = false;
+
+        while (!nombr) {
+            let nombre = prompt("introduce tu nombre");
+            var regN = /^[A-Za-z0-9._-]{8,15}$/
+            if (regN.test(nombre)) {
+                nombr = true;
+            }
+        }
+        if (nombr) {
+            alert("Nombre correcto")
+        }
+        while (!tlf) {
+            let telefono = prompt("introduce tu telefono");
+            var regT = /^\(?(0034|\+34)\)?[679][0-9]{8}$/
+            if (regT.test(telefono)) {
+                tlf = true;
+            }
+        }
+        if(tlf){
+            alert("Telefono correcto")
+        }
+        while (!pass) {
+            let password = prompt("Introduce contraseña");
+            let mayus = /[A-ZÑ]/;
+            let minus = /[a-zñ]/;
+            let num = /[0-9]/;
+            let ce = /[\W_]/;
+            let long = /[\wñ\d\W_]{8,18}/;
+            if (!mayus.test(password)) {
+                alert("La contraseña ha de tener al menos 1 mayuscula");
+            elseif(!minus.test(password)) 
+                alert("La contraseña ha de tener al menos 1 minuscula");
+             elseif(!num.test(password))
+                alert("La contraseña ha de tener al menos 1 numero");
+            elseif(!ce.test(password))
+                alert("La contraseña ha de tener al menos 1 caracter especial");
+            elseif(!long.test(password))
+                alert("La contraseña ha de tener entre 8 y 18 caracteres");
+            }else{
+                alert("contraseña correcta");
+                pass=true;}
+            
+        }
+
+
+
+    </script>
+</body>
+
+</html>

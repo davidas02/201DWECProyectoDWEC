@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio 3 David Aparicio</title>
+</head>
+<body>
+    <script>
+        var fechaNac=prompt("Escriba su fecha de nacimiento DD/MM/AAAA");
+        console.log(fechaNac);
+        let fechaFormateada=fechaNac.split("/");
+        let fecha=new Date(fechaFormateada[2],fechaFormateada[1]-1,fechaFormateada[0]);
+        console.log(fecha);
+        diaNac(fecha);
+        function diaNac(fecha) {
+            let fechaActual=new Date();
+            let anyo=fecha.getFullYear();
+          while (anyo<=fechaActual.getFullYear()) {
+            document.write(anyo+": "+diaEnLetra(fecha.getDay())+"<br/>");
+            fecha.setFullYear(anyo+1);
+            anyo++;
+          }  
+        }
+        function diaEnLetra(n){
+            let dia;
+            switch(n){
+                case 0: dia='Domingo';
+                break;
+                case 1:dia='Lunes';
+                break;
+                case 2:dia='Martes';
+                break;
+                case 3:dia='Miercoles';
+                break;
+                case 4:dia='Jueves';
+                break;
+                case 5:dia='Viernes';
+                break;
+                case 6:dia='Sabado';
+                break;
+            }
+            return dia;
+        }
+    </script>
+</body>
+</html>

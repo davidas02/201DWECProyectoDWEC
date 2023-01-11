@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio 4 David Aparicio</title>
+
+</head>
+
+<body>
+    <script>
+        var fec = prompt("Introduce una fecha DD/MM/AAA hh:mm:ss");
+        alert(fecha(fec))
+        function fecha(fecha) {
+            let f;
+            let salida;
+            if (fecha != null & fecha != undefined) {
+                let aFechaHora = fecha.split(" ");
+                let aFecha = aFechaHora[0].split("/");
+
+                if (aFechaHora.length > 1) {
+                    let aHora = aFechaHora[1].split(":");
+                    f = new Date(aFecha[2], aFecha[1] - 1, aFecha[0], aHora[0], aHora[1], aHora[2]);
+                } else {
+                    f = new Date(aFecha[2], aFecha[1] - 1, aFecha[0]);
+                }
+
+            } else {
+                f = new Date(Date.now());
+            }
+                salida = "Hoy es " + diaEnLetra(f.getDay()) + "," + f.getDate() + " de " + mesEnLetra(f.getMonth()) + " de " + f.getFullYear() + " y son las " + f.getHours() + " horas, " + f.getMinutes() + " minutos y " + f.getSeconds() + " segundos";
+            return salida;
+        }
+        function diaEnLetra(n) {
+            let dia;
+            switch (n) {
+                case 0: dia = 'Domingo';
+                    break;
+                case 1: dia = 'Lunes';
+                    break;
+                case 2: dia = 'Martes';
+                    break;
+                case 3: dia = 'Miercoles';
+                    break;
+                case 4: dia = 'Jueves';
+                    break;
+                case 5: dia = 'Viernes';
+                    break;
+                case 6: dia = 'Sabado';
+                    break;
+            }
+            return dia;
+        }
+        function mesEnLetra(n) {
+            let mes;
+            switch (n) {
+                case 0: mes = 'enero';
+                    break;
+                case 1: mes = 'febrero';
+                    break;
+                case 2: mes = 'marzo';
+                    break;
+                case 3: mes = 'abril';
+                    break;
+                case 4: mes = 'mayo';
+                    break;
+                case 5: mes = 'junio';
+                    break;
+                case 6: mes = 'julio';
+                    break;
+                case 7: mes = 'agosto';
+                    break;
+                case 8: mes = 'septiembre';
+                    break;
+                case 9: mes = 'octubre';
+                    break;
+                case 10: mes = 'noviembre';
+                    break;
+                case 11: mes = 'diciembre';
+                    break;
+            }
+            return mes;
+        }
+    </script>
+</body>
+
+</html>

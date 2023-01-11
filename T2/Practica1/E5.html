@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>E5 David Aparicio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+<body>
+    <script>
+        var intento=1;
+        do {
+            clave=123456;
+            pass=prompt("Introduce Password:")
+            if(pass==clave){
+                alert("Clave correcta");
+                intento=4
+            }else{
+                alert("clave incorrecta")
+                intento+=1
+            }
+            
+        } while (intento<=3);
+        if(intento==3){
+            document.write("No hay mas intentos")
+        }
+    </script>
+</body>
+</html>

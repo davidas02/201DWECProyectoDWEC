@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Document Object Model - Creación y modificación de elementos</title>
+        <meta charset="UTF-8">
+		<style>
+            .miClase{
+                color:red;
+            }
+        </style>
+        <script>
+            window.addEventListener("load",inicio);
+            
+            function inicio(){
+                document.getElementById("cambiarTextos").addEventListener("click",cambiarTextos);
+                document.getElementById("cambiarClases").addEventListener("click",cambiarClases);
+                document.getElementById("quitarClases").addEventListener("click",quitarClases);
+            }
+            
+            function cambiarTextos(){
+                let texto=prompt("Introduce texto");
+                
+                let main=document.getElementById("main");
+                let parrafoEscogido=main.children[escribirNumParrafo(main.length)];
+                let parrafo=document.createTextNode(texto)
+                parrafoEscogido.replaceChild(parrafo,parrafoEscogido.firstChild);
+            }
+            
+            function cambiarClases(){
+                let main=document.getElementById("main");
+                let numParrafo=escribirNumParrafo(main.children.length);
+                if (main.children[numParrafo].className!="miClase") {
+                    main.children[numParrafo].className="miClase";
+                }
+            }
+            
+            function quitarClases(){
+                let main=document.getElementById("main");
+                let numParrafo=escribirNumParrafo(main.children.length);
+                if (main.children[numParrafo].className=="miClase") {
+                    main.children[numParrafo].removeAttribute("class");
+                }
+            }
+            function escribirNumParrafo(n){
+                let patron=/\d+$/;
+                let parrafo=prompt("introduce numero de parrafo")-1;
+                while (!patron.test(parrafo)||parrafo>n) {
+                    parrafo=prompt("introduce numero de parrafo")-1;
+                }
+                return parrafo
+            }
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <p id="parrafo1">Este es el primer párrafo</p>
+            <p id="parrafo2">Este es el segundo párrafo</p>
+            <p id="parrafo3" class="miClase">Este es el tercer párrafo</p>
+        </div>
+        <br/>
+        <button id="cambiarTextos">Cambiar texto de párrafos</button>
+        <button id="cambiarClases">Cambiar clases de párrafos</button>
+        <button id="quitarClases">Quitar clases de todos los párrafos</button>
+    </body>
+</html>

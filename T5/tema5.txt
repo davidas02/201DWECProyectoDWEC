@@ -1,0 +1,11 @@
+Objetos de alto nivel
+es un indicativo del tipo de aplicacion en javascript
+Cliente o servidor
+window es el objetoprincipal/ basico de estos Objetos que es del que van a depender
+Propiedades
+Serie de Objetos 
+por ejemplo Navigator,Screen,Location,History,Console,Document
+Metodos alert prompt tambien son metodos de window
+Todo en conjunto se llama BOM Browser Object Model
+DOM Document object Model
+Que es DOM es la estructura de arbol de un documento html 

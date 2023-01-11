@@ -1,0 +1,16 @@
+Capas de una app web
+	Capa de presentacion o cliente
+		Se encarga de visualizar la aplicacion al cliente
+	Capa logica o de servidor 
+		Se encarga de traducir y enviar la aplicacion a la capa de presentacion, no puede ser visualizado 
+		desde esta capa
+	Capa de datos o de negocio
+		La capa de datos tiene el sistema gestor de bases de datos que almacena los datos estos datos seran 
+		accesibles desde la capa logica
+Diferencias frontend y backend
+	frontend
+		Es lo que el cliente ve
+	backend
+		Es la parte no visible y hace que la aplicacion funcione
+	diferencias
+		

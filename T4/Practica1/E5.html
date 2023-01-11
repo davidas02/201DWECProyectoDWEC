@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJ 5 David Aparicio</title>
+    <style>
+        table,td,th{
+            border: 1px black solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Lunes</th>
+        <th>Martes</th>
+        <th>Miercoles</th>
+        <th>Jueves</th>
+        <th>Viernes</th>
+        <th>Sabado</th>
+        <th>Domingo</th>
+      </tr>
+      <script>
+        var mes = prompt("Introduce un mes(1-12)")-1;
+        var anyo = prompt("Introduce el año");
+        var date = new Date(anyo, mes , 1);
+        while (date.getMonth() == mes) {
+          if (date.getDay()==1) {//si el dia de la semana es lunes 
+            document.write("<tr>");
+                document.write("<td>"+date.getDate()+"</td>");
+          } else {
+            if (date.getDay()==0) {//si el dia de la semana es domingo
+              if(date.getDate()!=1){//si no es dia 1
+                document.write("<td>"+date.getDate()+"</td>");
+                
+              }else{//si el mes empieza en domingo
+                document.write("<tr>");
+                for (let index = 6; index > date.getDay(); index--) {
+                  document.write("<td> </td>");
+                }
+                document.write("<td>"+date.getDate()+"</td>");
+              }
+                document.write("</tr>");
+            }else{
+              if(date.getDate()==1){
+                document.write("<tr>");
+                for (let index = 0; index < date.getDay()-1; index++) {
+                  document.write("<td> </td>");
+                }
+              }
+                document.write("<td>"+date.getDate()+"</td>");//dia de la semana normal
+            }
+          }
+          date.setDate(date.getDate()+1);
+        }
+      </script>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Ejercicio 4</title>
+    <style>
+        table,
+        td {
+            border: 1px black solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+        }
+
+        .mina {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const FILAS = prompt("Introduce el numero de filas");
+        const COLUMNAS = prompt("Introduce el numero de columnas");
+        function createTable() {
+            const aTablero = new Array(FILAS);
+            for (let y = 0; y < FILAS; y++) {
+                aTablero[y] = new Array(COLUMNAS);
+                for (let x = 0; x < COLUMNAS; x++) {
+                    aTablero[y][x] = false;
+                }
+            }
+            return aTablero;
+        }
+        function putMine(cantidad, tablero) {
+            for (let index = 0; index < cantidad; index++) {
+                do {
+                    var posX = parseInt(Math.random() * tablero.length);
+                    var posY = parseInt(Math.random() * tablero[0].length);
+                } while (tablero[posX][posY] == "mina")
+                tablero[posX][posY] = "mina";
+            }
+            return tablero;
+        }
+        function calcularCasilla(table) {
+            for (let y = 0; y < table.length; y++) {
+                for (let x = 0; x < table[0].length; x++) {
+                    //Calcular la casilla
+                    let cantidadMinas = 0;
+                    if (table[y][x] == "mina") {
+                        continue;
+                    }
+                    for (let ycasilla = -1; ycasilla <= 1; ycasilla++) {
+                        var yposicion = y - ycasilla;
+                        if (yposicion >= FILAS || yposicion < 0) {
+                            continue;
+                        } else {
+                            for (let xcasilla = -1; xcasilla <= 1; xcasilla++) {
+                                var xposicion = x - xcasilla;
+                                if (xposicion > COLUMNAS || xposicion < 0) {
+                                    continue;
+                                } else if (table[yposicion][xposicion] == "mina") {
+                                    ++cantidadMinas;
+                                }
+                            }
+                        }
+                    }
+                    table[y][x] = cantidadMinas;
+                }
+            }
+            return table;
+        }
+        function pintarTablero(tablero) {
+            document.write("<table>");
+            for (const x of tablero) {
+                document.write("<tr>");
+                for (const celda of x) {
+                    if (celda == "mina") {
+                        document.write(`<td class="mina">x</td>`);
+                    } else if (celda != 0) {
+                        document.write(`<td>${celda}</td>`);
+                    } else {
+                        document.write("<td> </td>");
+                    }
+                }
+                document.write("</tr>");
+            }
+            document.write("<table>");
+        }
+        var atablero = createTable();
+        var cantMina = prompt("Introduce cantidad de minas");
+        while (cantMina <= 0 | cantMina >= atablero.length * atablero[0].length) {
+            if (cantMina <= 0) {
+                alert("La cantidad de minas ha de ser positivas");
+            } else {
+                if (cantMina >= atablero.length * atablero[0].length) {
+                    alert("la cantidad de minas no pueden superar " + (atablero.length * atablero[0].length) - 1)
+                }
+            }
+        }
+        atablero = putMine(cantMina, atablero);
+        atablero = calcularCasilla(atablero);
+        //console.log(atablero);
+        pintarTablero(atablero);
+// console.log(calcularCasilla(atablero));
+    </script>
+</body>
+
+</html>

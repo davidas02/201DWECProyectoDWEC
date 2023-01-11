@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>E4 David Aparicio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+
+<body>
+
+    <script>
+        var contador = 1;
+        
+        n = prompt("Introduce un numero");
+        var mayor =n ;
+        var menor =n ;
+        var acum = parseInt(n);
+        while(n!=0) {
+            n = prompt("Introduce un numero");
+            if (Number(n)) {
+                if (n != 0) {
+                    if (n > mayor) {
+                        mayor = n;
+                    } else {
+                        if (n < menor) {
+                            menor = n;
+                        }
+                    }
+                    acum+=parseInt(n);
+                    contador++;
+                }
+            }
+        } 
+        media=acum/contador
+        document.write("El mayor es: " + mayor + `\n`);
+        document.write("El menor es: " + menor + `\n`);
+        document.write("La media es: " + media);
+    </script>
+</body>
+
+</html>

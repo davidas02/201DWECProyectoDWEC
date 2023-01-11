@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clases</title>
+</head>
+<body>
+  <script>
+    class Persona{
+        muerte=2080;
+        #nacimiento;
+          constructor(nombre, apellido){
+            this._nombre=nombre;
+            this.apellido=apellido;
+            this.#nacimiento=1888;
+            //Getters y setters Propiedades computadas provienen de otras o estan precalculadas   
+           
+            alert("Ha nacido una persona con el nombre de "+this._nombre+" "+this.apellido);
+            //nuncar hacer un return este metodo devuelve automaticamente un objeto de la clase a la que pertenece el constructor
+          } 
+           set sNombre(nombre){
+            this._nombre=nombre.toUpperCase();
+           }  
+         get gNombre(){
+          return "Sr. "+this._nombre;
+         }
+         static(){
+          //se utiliza para ejecutar antes de crear una instancia
+         }
+          hablar(){
+            alert("soy una persona y estoy hablando y he nacido en el año "+this.#nacimiento);
+            alert(this.#decirAlgo());
+          }
+          static despedirse(){
+            alert("Adios ")
+            
+          }
+          #decirAlgo(){
+            return ("blablabla");
+          }   
+    }
+    class Empleado extends Persona{
+      constructor(salario,horas,nombre,apellido){
+        super(nombre,apellido);
+        this.salario=salario;
+        this.horas=horas;
+        
+      }
+    }
+    var empleado1=new Empleado(1000,20,"david","aparicio");
+    console.log(empleado1);
+    alert(empleado1._nombre);
+    /*var persona1=new Persona(nombre=prompt("Indica Nombre de la persona"),
+    apellido=prompt("Indica Apellidos de la persona"));
+    console.log(persona1);
+    persona1.nombre="Pepe"
+    alert(persona1.nombre);
+    console.log(persona1);
+    persona1.hablar();
+    persona1.sNombre="JUAN"
+    alert(persona1.gNombre);*/
+  </script>  
+</body>
+</html>

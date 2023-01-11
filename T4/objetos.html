@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objetos</title>
+</head>
+<body>
+    <script>
+        /*Ventajas POO 
+        Se pueden tratar como un dato
+        Datos y Comportamiento
+        Velocidad de acceso
+        Herencia:
+
+        Abstraccion:
+
+        Encapsulamiento:
+        la encapsulación se refiere a la agrupación de datos con los métodos que operan en esos datos, o la restricción 
+        del acceso directo a algunos de los componentes de un objeto.
+        Polimorfismo:
+        Hace referencia a que cada objeto es independiente y que se pueden crear metodos llamados igual haciendo cosas totalmente diferentes
+        */
+       //Crear objetos
+       //Forma 1
+       var persona1={
+        nombre:"Alberto",
+        apellido:"Bahillo",
+        anyoNacimiento:1987,
+        saludo:function () {
+            console.log("hola me llamo "+this.nombre+" "+this.apellido);
+        }
+        
+       };
+       persona1.saludo;
+       //Forma 2
+       var persona2= new Object();
+       persona2.name="Pepe";
+       persona2.surname="Perez";
+       persona2.bornYear=1578
+       persona2.nacimiento=function(){
+            alert("Nací en el año "+this.bornYear);
+        }
+       //Forma 3
+       function Persona(nom,ape,anNac){
+        this.nombre=nom;
+        this.apellido=ape;
+        this.anyoNac=anNac;
+        this.despedida=function(){
+            alert("Hasta luego "+this.nombre);
+        }
+       }
+       
+       Persona.prototype.ideal;
+       persona3=new Persona("Mariano","Rajoy",1955);
+       persona4=new Persona("Santiago","Abascal",1930);
+       console.log(persona1);
+       console.log(persona2);
+       console.log(persona3);
+       persona2.nacimiento();
+       //Llamar a un valor del objeto
+       let variable="nombre";
+       console.log(persona1.nombre);
+       console.log(persona2["name"]);
+       console.log(persona3[variable]);
+       //iterar objeto
+       for (const key in persona3 ){
+        console.log(persona3[key]);
+       }
+       //añadir funcion;
+       
+       persona3.ideal="Derechas";
+
+       console.log(persona3.ideal);
+       console.log(Persona instanceof Object);
+       console.log(persona3);
+       delete persona3.ideal;
+       console.log(persona3);
+       persona4.despedida();
+       console.log(persona1.saludo);
+       var datos=[5,6,8,2,8,14,8,2,25,2];
+       Array.prototype.suma=function(){
+        var sum=0;
+        for (const x of this) {
+            sum+=x;
+        }
+        alert(sum);
+       }
+       datos.suma();
+    </script>
+</body>
+</html>

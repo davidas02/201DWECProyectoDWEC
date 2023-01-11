@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio1</title>
+</head>
+
+<body>
+    <script>
+        var palabra = prompt("Introduce una palabra").toLowerCase();
+       
+        function limpiarFormato(palabra) {
+            let palabraR = palabra;
+        palabraR = palabraR.split(/\s/g).join("");
+            do {
+            palabra = palabraR;
+            palabraR = palabraR.replace("á", "a");
+            palabraR = palabraR.replace("é", "e");
+            palabraR = palabraR.replace("í", "i");
+            palabraR = palabraR.replace("ó", "o");
+            palabraR = palabraR.replace("ú", "u");
+            palabraR = palabraR.replace("à", "a");
+            palabraR = palabraR.replace("è", "e");
+            palabraR = palabraR.replace("ì", "i");
+            palabraR = palabraR.replace("ò", "o");
+            palabraR = palabraR.replace("ù", "u");
+            palabraR = palabraR.replace("â", "a");
+            palabraR = palabraR.replace("ê", "e");
+            palabraR = palabraR.replace("î", "i");
+            palabraR = palabraR.replace("ô", "o");
+            palabraR = palabraR.replace("û", "u");
+            palabraR = palabraR.replace("ä", "a");
+            palabraR = palabraR.replace("ë", "e");
+            palabraR = palabraR.replace("ï", "i");
+            palabraR = palabraR.replace("ö", "o");
+            palabraR = palabraR.replace("ü", "u");
+            palabraR = palabraR.replace(".", "");
+            palabraR = palabraR.replace(",", "");
+            palabraR = palabraR.replace("!", "");
+            palabraR = palabraR.replace("¡", "");
+            palabraR = palabraR.replace("?", "");
+            palabraR = palabraR.replace("¿", "");
+        } while (palabra != palabraR);
+        return palabra;
+        }
+        
+        alert(esPalindromo(limpiarFormato(palabra)));
+        function esPalindromo(palabra) {
+            let reves = true;
+            index2 = 0;
+            for (let index = palabra.length-1; index >= 0&reves; index--) {
+                if (palabra.charAt(index2) != palabra.charAt(index)) {
+                    reves = false;
+                }
+                index2++;
+            }
+            return reves;
+        }
+    </script>
+</body>
+
+</html>

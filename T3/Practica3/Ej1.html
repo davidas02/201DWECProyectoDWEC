@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Ejercicio1</title>
+  </head>
+
+  <body>
+    <script>
+      let n = prompt("Introduce un numero");
+      let array=[]
+      for (let index = 0; index <= n; index++) {
+         array[index]=fibonacciRecursivo(index);
+      }
+      alert("De forma recursiva " + array);
+      alert("De forma Iterativa " + fibonacciIterativo(n));
+      function fibonacciRecursivo(numero) {
+        if (numero < 2) {
+          return numero;
+        } else {
+             return fibonacciRecursivo(numero - 1) + fibonacciRecursivo(numero - 2);
+        }
+      }
+      function fibonacciIterativo(numero) {
+        let arr = [];
+        if (numero==0) {
+          arr=[0]
+        }else{
+          arr=[0,1]
+        }
+        for (let i = 2; i <= n; i++) {
+          arr[i] = arr[i - 1] + arr[i - 2];
+        }
+
+        return arr;
+      }
+    </script>
+  </body>
+</html>

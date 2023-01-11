@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <script>
+        var palabra1 = limpiarFormato(prompt("Introduzca una palabra").toLowerCase());
+        console.log(palabra1);
+        var palabra2 = limpiarFormato(prompt("introduzca otra palabra").toLowerCase());
+        while(palabra1!=undefined|palabra2!=undefined|palabra1!=null|palabra2!=null){
+        if (esAnagrama(palabra1, palabra2)) {
+            alert("Es ANAGRAMA");
+        } else {
+            alert("NO ES ANAGRAMA")
+        }
+        palabra1 = limpiarFormato(prompt("Introduzca una palabra").toLowerCase());
+        palabra2 = limpiarFormato(prompt("introduzca otra palabra").toLowerCase());
+    }
+    function limpiarFormato(palabra) {
+            let palabraR = palabra;
+            palabraR = palabraR.split(/\s/g).join("");
+            do {
+                palabra = palabraR;
+                palabraR = palabraR.replace("á", "a");
+                palabraR = palabraR.replace("é", "e");
+                palabraR = palabraR.replace("í", "i");
+                palabraR = palabraR.replace("ó", "o");
+                palabraR = palabraR.replace("ú", "u");
+                palabraR = palabraR.replace("à", "a");
+                palabraR = palabraR.replace("è", "e");
+                palabraR = palabraR.replace("ì", "i");
+                palabraR = palabraR.replace("ò", "o");
+                palabraR = palabraR.replace("ù", "u");
+                palabraR = palabraR.replace("â", "a");
+                palabraR = palabraR.replace("ê", "e");
+                palabraR = palabraR.replace("î", "i");
+                palabraR = palabraR.replace("ô", "o");
+                palabraR = palabraR.replace("û", "u");
+                palabraR = palabraR.replace("ä", "a");
+                palabraR = palabraR.replace("ë", "e");
+                palabraR = palabraR.replace("ï", "i");
+                palabraR = palabraR.replace("ö", "o");
+                palabraR = palabraR.replace("ü", "u");
+                palabraR = palabraR.replace(".", "");
+                palabraR = palabraR.replace(",", "");
+                palabraR = palabraR.replace("!", "");
+                palabraR = palabraR.replace("¡", "");
+                palabraR = palabraR.replace("?", "");
+                palabraR = palabraR.replace("¿", "");
+            } while (palabra != palabraR);
+            return palabra;
+        }
+        function esAnagrama(p1, p2) {
+            var salida = true;
+            if (p1.length != p2.length) {
+                salida = false;
+            } else {
+                let arrayPalabra1 = [];
+                let arrayPalabra2 = [];
+                for (let index = 0; index < p1.length & salida; index++) {
+                    let l = p1.charAt(index);
+                    arrayPalabra1.push(l);
+                }
+                console.log(arrayPalabra1);
+                for (let index = 0; index < p2.length & salida; index++) {
+                    let l = p2.charAt(index);
+                    arrayPalabra2.push(l);
+                }
+                console.log(arrayPalabra2);
+                arrayPalabra1.sort();
+                arrayPalabra2.sort();
+                console.log(arrayPalabra1);
+                console.log(arrayPalabra2);
+                for (let index = 0; index < arrayPalabra1.length; index++) {
+                    if (arrayPalabra1[index] != arrayPalabra2[index]) {
+                        salida = false;
+                    }
+                }
+            }
+            return salida;
+        }
+    </script>
+</body>
+
+</html>

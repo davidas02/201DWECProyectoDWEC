@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <script>
+       let mapa=mostrarRepetidos(introducirPalabras());
+       let claves=mapa.keys();
+       document.write("<ul>")
+       for (const iterator of claves) {
+            document.write("<li>"+iterator+":"+mapa.get(iterator)+"</li>")
+        }
+        document.write("</ul>")
+        function introducirPalabras() {
+            let arr=[];
+            let palabra=prompt("Introduce palabras");
+            while (palabra!=null|palabra!=undefined) {
+                arr.push(palabra);
+                palabra=prompt("Introduce palabras");
+            }
+            return arr;
+        }
+        
+        function mostrarRepetidos(arra) {
+            let mapa=new Map();
+            for (index=0;index<arra.length;index++) {
+                if(!mapa.has(arra[index])){
+                    mapa.set(arra[index],1);
+                }else{
+                    mapa.set(arra[index],mapa.get(arra[index])+1);
+                }
+                
+            }
+            return mapa;
+        }
+    </script>
+</body>
+</html>

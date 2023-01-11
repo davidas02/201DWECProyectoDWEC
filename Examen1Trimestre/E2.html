@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 David Aparicio Sir</title>
+</head>
+
+<body>
+    <script>
+        let mapa = new Map([["1111BCD", "Seat"],
+        ["2222DEF", "Audi"],
+        ["3333FGH", "Mercedes"],
+        ["4444HIJ", "Seat"],
+        ["5555JKL", "Mercedes"],
+        ["6666LMN", "Seat"]]);
+        Map.prototype.invertirMapa =function(){
+            let mapaInvertido=new Map();
+            for (let [clave,valor] of this) {
+                if(mapaInvertido.has(valor)){
+                    mapaInvertido.get(valor).push(clave);
+                }else{
+                    mapaInvertido.set(valor,[clave]);
+                }
+            }
+            return mapaInvertido;
+        }
+        console.log(mapa.invertirMapa());
+    </script>
+</body>
+
+</html>

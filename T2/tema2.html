@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Document1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script type="js" src="js/primerScript.js"></script>
+</head>
+<body>
+    <script>       
+        alert("Hola mundo");
+        let confirmacion=confirm("Eres tu?");
+        let edad=prompt("Cual es tu edad?")
+        document.write(edad+"<br>");
+        
+        if (edad>=18) {
+            document.writeln("Eres mayor de edad");
+        }else{
+            document.writeln("Eres menor de edad"); 
+        }
+        document.write("<br>");
+        for (let index = 0; index <= 10; index++) {
+            document.write(Math.random*10+"<br>"); 
+        }
+    </script>
+</body>
+</html>

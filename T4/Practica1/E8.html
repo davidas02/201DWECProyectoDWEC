@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio 8 </title>
+</head>
+<body>
+    <script>
+        var fichero=prompt("Nombre del fichero");
+        alert(validarFichero(fichero));
+        function validarFichero(fichero) {
+            let patron=/^\w+(\.docx|\.pdf)$/;
+            if (patron.test(fichero)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

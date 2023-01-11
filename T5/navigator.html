@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>documento DOM</title>
+</head>
+<body>
+    <section id="s1">
+        <h1 class="titulo">DOM</h1>
+        <p>Ejemplo <strong>DOM</strong> en forma de arbol</p>
+    </section>
+    <section id="s2">
+        <h2 class="titulo">Seccion2</h2>
+        <p>esto es un parrafo de texto</p>
+    </section>
+    <script>
+        let seccion1=document.getElementById("s1");
+        let lista=seccion1.children;
+        let lista2=document.querySelectorAll("#s1>*");
+        alert("Viva "+lista.length);
+        alert("Query "+lista2.length);
+        let nuevoParrafo=document.createElement("p");
+        nuevoParrafo.textContent="Soy el nuevo Parrafo";
+        seccion1.appendChild(nuevoParrafo);
+        alert("Viva "+lista.length);
+        alert("Query "+lista2.length);
+        /*//Crear Nodos createElement() createTextNode() metodos de DOCUMENT
+        let nuevoParrafo=document.createElement("p");
+        //nuevoParrafo.innerHTML="Soy el nuevo Parrafo";
+        let texto=document.createTextNode("Texto añadido mediante un nodo");
+        nuevoParrafo.appendChild(texto);*/
+        
+        //seccion1.appendChild(nuevoParrafo);//añadir hijo
+        //Metodo insertBefore Inserta un nodo antes de...
+        //seccion1.insertBefore(nuevoParrafo,seccion1.lastElementChild);
+        //replaceChild
+        /*let nodoS=seccion1.replaceChild(nuevoParrafo,seccion1.lastElementChild)
+        document.getElementById("s2").appendChild(nodoS);*/
+        //removeChild
+       /* let eliminado=seccion1.removeChild(seccion1.firstElementChild);
+        document.getElementById("s2").appendChild(eliminado);*/
+        //Acceso a nodos hijos de un elemento cildnodes y children
+        //let seccion1=document.getElementById("s1");
+       /* alert(seccion1.childNodes.length);
+        for (const iterator of seccion1.childNodes) {
+            alert(iterator.nodeName+" "+iterator.nodetype+" "+iterator.nodeValue);
+        }
+        alert(seccion1.children.length);
+        for (const iterator of seccion1.children) {
+            alert(iterator.nodeName+" "+iterator.nodeValue);
+        }*/
+        //firstChild y firstElementChild
+        //alert(seccion1.firstChild.nodeName+" "+seccion1.firstChild.nodeType+" "+seccion1.firstChild.nodeValue);
+       //alert(seccion1.firstElementChild.nodeName+" "+seccion1.firstElementChild.nodeType+" "+seccion1.firstElementChild.nodeValue);
+        //lastChild lastElementChild igual que el anterior pero para el ultimo
+        //nextSibling y nextElementSibling-Siguiente hermano
+        //previousSibling y previousElementSibling- anterior hermano
+        //parent nodo Padre del nodo actual
+        //childElementCount Numero de elementos hijos del nodo actual
+
+        //document.getElementsByTagName("p")[0].style.color="lawngreen";
+        //document.getElementsByTagName("p")[0].style["background-color"]="black";
+        //document.getElementsByTagName("p")[0].innerHTML="Parrafo modificado por <strong> APA</strong>";
+        //document.getElementsByTagName("p")[0].textContent="Parrafo modificado por APA";
+        //Tanto textContent como innerHTML son propiedades que tienen el contenido de texto en un elemento. la diferencia esta en que innerHTML interpreta las etiquetas html
+        /*document.getElementById("s1");
+        document.getElementsByTagName("p");
+        let seccion1=document.getElementById("s1");// recoge la seccion con el id s1
+        seccion1.getElementsByTagName("p");//devuelve los p de la seccion
+        document.getElementsByClassName("titulo");
+        document.getElementsByName("titulo");
+        document.querySelectorAll("#s1");
+        document.querySelector("#s2 p");
+        alert(seccion1.getAttribute("id"));
+        seccion1.removeAttribute("nombreAtributo");//borrar el atributo
+        alert(seccion1.hasAttribute("id"));
+        let lisAttrib=seccion1.attributes;
+        for (const la of lisAttrib) {
+            alert(la.name+" "+la.value);
+        }*/
+    </script>
+</body>
+</html>

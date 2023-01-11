@@ -1,0 +1,40 @@
+li{
+    list-style: none;
+    display:inline-block;
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+li a{
+    text-decoration: none;
+    color: black;
+}
+#nav{
+  text-align: center;
+}
+ul{
+    list-style: none;
+    background-color: skyblue;
+}
+footer{
+    bottom: 0%;
+    position: fixed;
+    text-align: center;
+    background-color: skyblue;
+    width: 100%;
+}
+*{
+    font-family: 'Comic Sans MS';
+}
+#modulos{
+    columns: 2;
+    
+}
+.modulo{
+    text-decoration: none;
+    color: black;
+    border: 1px black solid;
+}
+footer a{
+    text-decoration: none;
+    color: black;
+}

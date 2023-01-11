@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 David Aparicio</title>
+</head>
+<body>
+    <script>
+        var fechaHoraActual=new Date();
+        console.log(fechaHoraActual);
+        var diaActual=fechaHoraActual.getDay();
+        console.log(diaActual);
+        var horaActual=fechaHoraActual.getHours();
+        console.log(horaActual);
+        if (diaActual!=6&&diaActual!=0&& horaActual>6&&horaActual<15) {
+            document.write("Bienvenido a mi web")
+        }else{
+            document.write("Página cerrada fuera de horario laboral")
+        }
+    </script>
+</body>
+</html>
