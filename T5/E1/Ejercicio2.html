@@ -53,11 +53,14 @@
         function sustituirPrimero() {
             let raiz=document.getElementById("div1");
             let primer=raiz.children[0];
-           
+            
+            let p=document.createElement("p");
+            
             let texto=document.getElementById("texto").value;
-            let t=document.createTextNode(texto);
-            primer.replaceChild(t,primer.firstChild);
             document.getElementById("texto").value="";
+            let t=document.createTextNode(texto);
+            p.appendChild(t);
+            raiz.replaceChild(p,primer);
         }
     </script>
 </head>
