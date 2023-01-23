@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejerciccio 3-1 David Aparicio</title>
+</head>
+
+<body>
+    <ol>
+        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, consequuntur, voluptatum corporis dicta
+            corrupti rerum ab temporibus omnis adipisci accusantium quae voluptas eligendi ad. Ad officia laboriosam in.
+            Ullam, esse!</li>
+        <li>A at molestiae, voluptate delectus aut mollitia beatae illo quasi! Nam aliquid et tempora odit nobis
+            reiciendis atque porro hic rerum fugiat minus explicabo dicta, est sit? Saepe, ut deleniti.</li>
+        <li>Molestias perferendis quam temporibus sapiente culpa iusto minus officiis dolores asperiores modi facilis ex
+            laborum soluta maiores aspernatur eum quia illo quod, consequatur labore expedita, minima praesentium
+            tempore. Facere, fugit!</li>
+        <li>Amet, perspiciatis dolor! Obcaecati sint aspernatur ipsum? Maiores atque tempora sequi minus architecto
+            saepe voluptate? Minima illum, nostrum eum iusto dolor facere fuga doloremque, sint quam, molestias quas
+            eveniet aliquid?</li>
+        <li>Et mollitia, dolor odio est quam recusandae? Iste saepe voluptatibus unde consectetur reiciendis voluptatum
+            voluptates autem, adipisci totam ea deserunt, quia aspernatur. Libero recusandae totam nostrum quod,
+            adipisci soluta expedita.</li>
+        <li>Facilis, pariatur. Iure ad quod eaque assumenda voluptate fugiat obcaecati minus quaerat, beatae veritatis
+            delectus rerum? Aut, deserunt sed. Quis id expedita dolores modi fugiat natus tempora enim fugit architecto.
+        </li>
+        <li>Eum, molestias? Numquam iste voluptates, est soluta cum nulla sint dicta asperiores error consequuntur non,
+            qui dolores dolore culpa nobis quasi ea quas eveniet doloribus laboriosam? Suscipit nihil modi quo?</li>
+        <li>Eum, perspiciatis! Perspiciatis, cumque ea esse tenetur voluptatum doloribus iusto sapiente excepturi
+            consequuntur illo error eveniet illum ut inventore officia animi velit ab autem nostrum laborum quibusdam
+            est in. Nemo.</li>
+        <li>Dignissimos voluptates nemo beatae voluptas, soluta consectetur, a harum fugiat consequatur nihil,
+            repudiandae maxime quis impedit fugit reprehenderit vel dolore saepe. Excepturi vero nemo non fugiat ratione
+            vitae ipsum commodi?</li>
+    </ol>
+    <script>
+        window.addEventListener("load", introducirLinea);
+        function introducirLinea() {
+            let texto = prompt("introduce texto");
+            let pos = parseInt(prompt("introduce numero 1-10"));
+            let raiz = document.getElementsByTagName("ol")[0];
+            let strong = document.createElement("li");
+            strong.innerHTML = "<strong>" + texto + "</strong>";
+            if (pos >= 1 && pos <= 9) {
+                raiz.insertBefore(strong, raiz.children[pos - 1]);
+            } else {
+                if (pos == 10) {
+                    raiz.appendChild(strong);
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

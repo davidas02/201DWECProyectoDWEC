@@ -42,17 +42,17 @@
 
         function borrarUltimo() {
             let raiz=document.getElementById("div1");
-           raiz.removeChild(raiz.children[raiz.childElementCount-1]);
+           raiz.removeChild(raiz.lastChild);
         }
 
         function borrarPrimero() {
             let raiz=document.getElementById("div1");
-            raiz.removeChild(raiz.children[0]);
+            raiz.removeChild(raiz.firstChild);
         }
 
         function sustituirPrimero() {
             let raiz=document.getElementById("div1");
-            let primer=raiz.children[0];
+            let primer=raiz.firstElementChild;
             
             let p=document.createElement("p");
             

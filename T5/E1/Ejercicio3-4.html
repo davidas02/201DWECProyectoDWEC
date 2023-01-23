@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3-4</title>
+</head>
+
+<body>
+    <script>
+        let palabras = ["hola", "pepe", "coche", "camion", "movil", "botella", "cartera","ñu", "ricardo", "antonio"]
+        let contAp = 0;
+        setTimeout(() => {
+            let ordenar= confirm("ordenamos")
+        if (ordenar) {
+            var aOrdenado=palabras.sort()
+            let inter = setInterval(() => {
+            let raiz = document.getElementById("container");
+                let p=document.createElement("p");
+                let text=document.createTextNode(aOrdenado[contAp]);
+                p.appendChild(text);
+                raiz.appendChild(p);
+                
+                contAp++;
+                if(contAp>=palabras.length){
+                    clearInterval(inter);
+                }
+        }, 1000);
+        
+        }else{ 
+        let inter = setInterval(() => {
+            let raiz = document.getElementById("container");
+                let p=document.createElement("p");
+                let text=document.createTextNode(palabras[contAp]);
+                p.appendChild(text);
+                raiz.appendChild(p);
+                
+                contAp++;
+                if(contAp>=palabras.length){
+                    clearInterval(inter);
+                }
+        }, 1000);
+    }
+        }, 3000);
+        function ordenarPalabras(a,b) {
+            if (a>b) {
+                return 1;
+            }else{
+                if(b>a){
+                    return -1;
+                }else{
+                    return 0;
+                }
+                
+            }
+            
+        }
+        
+
+    </script>
+    <div id="container">
+
+    </div>
+</body>
+
+</html>
