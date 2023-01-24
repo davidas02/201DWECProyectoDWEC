@@ -13,17 +13,17 @@
     </style>
 </head>
 <body>
-    <div class="reloj">
-        <img  alt="">
-        <img  alt="">
-        <img src="img/separacion.png" alt="">
-        <img  alt="">
-        <img  alt="">
-        <img src="img/separacion.png" alt="">
-        <img  alt="">
-        <img  alt="">
-    </div>
+    
     <script>
+        let body=document.getElementsByTagName("body")[0];
+        let reloj=document.createElement("div");
+        reloj.setAttribute("id","reloj");
+        body.appendChild(reloj);
+        for (let index = 0; index < 8; index++) {
+            reloj.appendChild(document.createElement("img")); 
+        }
+        reloj.getElementsByTagName("img")[2].setAttribute("src","img/separacion.png");
+        reloj.getElementsByTagName("img")[5].setAttribute("src","img/separacion.png");
         let imagenes=[
         "img/cero.png",
         "img/uno.png",
