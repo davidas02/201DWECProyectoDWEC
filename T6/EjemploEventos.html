@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo</title>
+    <style>
+        div{
+            margin: 5px;
+            padding: 5px;
+            background-color: aqua;
+        }
+        p{
+            margin: 5px;
+            padding: 5px;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            <button>Hazme Clic</button>
+        </p>
+    </div>
+    <script>
+        let capa=document.querySelector("div");
+        let parrafo=document.querySelector("p");
+        let boton=document.querySelector("button");
+        // boton.onclick() => {alert("me has checho click")};
+        boton.addEventListener("click",()=>{alert("clic")},false)
+        parrafo.addEventListener("click",()=>{alert("parrafo")},false)
+        capa.addEventListener("click",div,false)
+        function div(){
+            alert("div")
+            capa.removeEventListener("click",div)
+        }
+    </script>
+</body>
+</html>
