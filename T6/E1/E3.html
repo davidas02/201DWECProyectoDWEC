@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E3-DavidAparicio</title>
+    <style>
+        *{padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            width: 98vw;
+            height: 98vh;
+        }
+        #capa1{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid black;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="capa1">capa1</div>
+    <script>
+        
+        let capa=document.getElementById("capa1");
+        capa.addEventListener("mousedown",rojo);
+        capa.addEventListener("mouseup",verde);
+        capa.addEventListener("mouseover",verde);
+        capa.addEventListener("mouseleave",blanco);
+        capa.addEventListener("contextmenu",cancelar);
+        function rojo(e){
+            console.log(e.button);
+            if(e.button==0){
+                capa.style.backgroundColor="red";
+            }else{
+                if(e.button==2){
+                    capa.style.backgroundColor="blue";
+                }
+            }  
+        }
+        function verde(e) {
+            
+            capa.style.backgroundColor="green";
+        }
+        function blanco(e) {
+            capa.style.backgroundColor="transparent";
+        }
+        function cancelar(e) {
+            e.preventDefault()
+        }
+    </script>
+</body>
+</html>

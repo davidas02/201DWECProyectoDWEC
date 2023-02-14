@@ -7,35 +7,80 @@
     <title>Ejemplo</title>
     <style>
         div{
-            margin: 5px;
-            padding: 5px;
+            padding: 50px;
             background-color: aqua;
+            position: absolute;
+            top: 35%;
+            left: 35%;
         }
         p{
-            margin: 5px;
-            padding: 5px;
+            padding: 50px;
             background-color: chartreuse;
+            top: 50%;
+            left: 50%;
+        }
+        button{
+            margin: 5px;
+            padding: 5px; 
+            top: 50%;
+            left: 50%;
         }
     </style>
 </head>
 <body>
+    <!-- <a href="https://www.elpais.com">LO PAIS</a> -->
     <div>
         <p>
             <button>Hazme Clic</button>
         </p>
     </div>
     <script>
+        let enlace=document.querySelector("a");
         let capa=document.querySelector("div");
         let parrafo=document.querySelector("p");
         let boton=document.querySelector("button");
         // boton.onclick() => {alert("me has checho click")};
-        boton.addEventListener("click",()=>{alert("clic")},false)
-        parrafo.addEventListener("click",()=>{alert("parrafo")},false)
-        capa.addEventListener("click",div,false)
-        function div(){
+        boton.addEventListener("click",mensaje)
+        parrafo.addEventListener("click",mensaje)
+        capa.addEventListener("click",mensaje)
+        var miEvento=new Event("click");
+        function mensaje(e) {
+            alert("clic en "+e.target.nodeName)
+           // e.stopPropagation();//para la propagación
+            //capa.dispatchEvent(miEvento);
+        }
+        function mensaje2(e) {
+            alert("clic en el div")
+            //e.stopPropagation();//para la propagación
+            
+        }
+        /*function div(){
             alert("div")
             capa.removeEventListener("click",div)
-        }
+        }*/
+    //     enlace.addEventListener("click",confirmacion);
+    //     boton.addEventListener("click",mensaje);
+    //     document.body.addEventListener("click",prueba)
+        document.body.addEventListener("keydown",prueba);
+    //    document.body.addEventListener("mousemove",prueba);
+    //     function mensaje(ev) {
+    //         alert(ev.target);
+    //         ev.target.style.backgroundColor='red';
+    //         alert("clientX y clientY "+ev.clientX+", "+ev.clientY);
+    //         alert("screenX y screenY "+ev.screenX+", "+ev.screenY);
+    //         alert("pageX y pageY "+ev.pageX+", "+ev.pageY);
+    //     }
+     function prueba(evento) {
+             alert("has pulsado una tecla  alt="+evento.altKey+" control="+evento.ctrlKey+" shift="+evento.shiftKey);
+             console.log("clic en: "+evento.movementX+" "+evento.movementY)
+         }
+    //     function confirmacion(ev) {
+    //         if (!confirm("Desea ir al enlace seleccionado?")) {
+    //             ev.preventDefault();
+    //         }
+            
+        // }
+
     </script>
 </body>
 </html>

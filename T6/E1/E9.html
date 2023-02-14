@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E9</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            text-align: center;
+            color: teal;
+            font-size: 3em;
+        }
+
+        input {
+            width: 85%;
+            height: 56px;
+            font-size: 1.8em;
+            padding-left: .5em;
+            font-family: "Montserrat", sans-serif;
+            border-radius: 10px 0 0 10px;
+            border: 1px solid brown;
+            outline: none;
+            color: brown;
+            text-align: left;
+            float: left;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 16px;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            background-color: brown;
+            border-radius: 0 10px 10px 0;
+            border: none;
+            outline: none;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        li {
+            font-size: 2em;
+            color: teal;
+            font-family: "Montserrat", sans-serif;
+            margin-bottom: .5em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Tareas</h1>
+    <form action="E9.html">
+        <input type="text" name="tarea" id="tarea" placeholder="Nueva tarea">
+        <button id="anadir">+</button>
+        <ul>
+        </ul>
+    </form>
+    <script>
+        let boton = document.getElementById("anadir");
+        let entrada = document.getElementById("tarea");
+        let ul = document.getElementsByTagName("ul")[0];
+        boton.addEventListener("click", addTarea);
+        function addTarea(e) {
+            if(entrada.value.length>0){
+                let li = document.createElement("li");
+            li.textContent = entrada.value;
+            let borrar = document.createElement("button");
+            borrar.setAttribute("class", "borrar");
+            borrar.textContent = "Borrar";
+            borrar.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                li.remove();
+            });
+            li.appendChild(borrar);
+            ul.appendChild(li);
+            li.addEventListener("click", () => {
+                let li2 = document.getElementsByTagName("li")[0];
+                ul.replaceChild(li, document.getElementsByTagName("li")[0])
+                ul.appendChild(li2);
+            });
+            }
+            e.preventDefault();
+            
+            entrada.value = "";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E7-David Aparicio</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        .container{
+            width: 100vw;
+            display: flex;
+            flex-flow: nowrap column;
+        }
+        header{
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: orange;
+        }
+        main{
+            margin: 5%;
+            display: flex;
+            flex-flow: wrap row;
+            justify-content: flex-start;
+        }
+        form{
+            margin: 5%;
+            display: flex;
+            flex-flow: column;
+        }
+        #incorrecto{
+            background-color: red;
+            color: white;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>INFORME INCIDENCIA</header>
+        <main>
+            <img src="img/container.jpg" alt="container" >
+            <form action="E7.html" method="post">
+                <label for="incidencia">Tipo de incidencia</label>
+                <select name="incidencia" id="incidencia">
+                    <option id="distribucion" selected value="distribucion">Distribución</option>
+                    <option id="oficina" value="oficina">Oficina</option>
+                    <option id="produccion" value="produccion">Producción</option>
+                </select>
+                <label for="serie">
+                    Numero de serie
+                </label>
+                <input type="text" name="serie" id="serie">
+                <p id="incorrecto">Entrada Incorrecta</p>
+                <button id="mostrarDescripcion">Mostrar Descripción</button>
+                <input type="submit" id="enviar" value="Enviar Datos">
+            </form>
+        </main>
+    </div>
+    <script>
+        let exp=/^[0-9]{4}[A-Z]{3}[12A]$/;
+        let v1=document.getElementById("serie");
+        let v2=document.getElementById("incidencia");
+        let incorrecto=document.getElementById("incorrecto");
+        let mostrar=document.getElementById("mostrarDescripcion");
+        let capa=document.getElementsByTagName("main")[0];
+        let enviar=document.getElementById("enviar");
+        v2.addEventListener("change",cambiarImagen);
+        v1.addEventListener("focus",quitarError)
+        mostrar.addEventListener("click",pulsar)
+        enviar.addEventListener("click",comprobarCorrecto)
+        function pulsar(e) {
+            e.preventDefault();
+            
+                let p=document.createElement("textarea");
+                capa.append(p);
+                mostrar.style.display="none";
+        }
+        function comprobarCorrecto(e) {
+            e.preventDefault();
+          if(!exp.test(v1.value)){
+           incorrecto.style.display="block";
+           v1.style.border="1px solid red";
+          }else{
+            incorrecto.style.display="none";
+            
+          }
+        }
+        function quitarError(e) {
+            incorrecto.style.display="none";
+            v1.style.border="1px solid black";
+        }
+        function cambiarImagen(e) {
+            console.log(v2.value);
+            let escogido=v2.value;
+            let img="";
+            switch (escogido) {
+                case "oficina":
+                    img="img/oficina.jpg";
+                    break;
+            case "distribucion":
+                img="img/container.jpg";
+                break;
+                case "produccion":
+                    img="img/produccion.jpg";
+                    break;
+                default:
+                    img="img/container.jpg"
+                    break;
+            }
+            document.getElementsByTagName("img")[0].setAttribute("src",img);
+        }
+    </script>
+</body>
+
+</html>
