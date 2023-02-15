@@ -18,13 +18,13 @@ function comienzo() {
 	var pincelActivo = false;//Variable booleana que guarda el estado del pincel 
 	botonCrearLienzo.addEventListener("click", crearLienzo);
 	activarPaleta()
-	botonBorrar.addEventListener("click",borrarDibujo);
+	botonBorrar.addEventListener("click", borrarDibujo);
 
 
 	//funciones
 	function crearLienzo(e) {
 		e.preventDefault();
-		
+
 		zonaDibujo.setAttribute("class", "tablerodibujo")
 		for (let index = 0; index < tamLienzo.value; index++) {
 			let fila = document.createElement("tr");
@@ -38,52 +38,48 @@ function comienzo() {
 		}
 		document.body.appendChild(zonaDibujo);
 		botonCrearLienzo.removeEventListener("click", crearLienzo);
-		zonaDibujo.addEventListener("click",activarPincel);
+		zonaDibujo.addEventListener("click", activarPincel);
 	}
 	function activarPaleta() {
-		let colores=paleta.children;
+		let colores = paleta.children;
 		for (const color of colores) {
-			color.addEventListener("click",(e)=>{
+			color.addEventListener("click", (e) => {
 				paleta.querySelector(".seleccionado").classList.remove("seleccionado");
 				e.target.classList.add("seleccionado");
 			});
 		}
-		
+		pincel.textContent = "PINCEL DESACTIVADO";
 	}
 	function activarPincel(e) {
-		if(pincelActivo){
+		if (pincelActivo) {
 			for (const filas of zonaDibujo.children) {
 				for (const celdas of filas.children) {
-					celdas.removeEventListener("mouseover",pintar);
-					
+					celdas.removeEventListener("mouseover", pintar);
+
 				}
 			}
-			pincelActivo=false;
-			pincel.textContent="PINCEL DESACTIVADO";
-		}else{
+			pincelActivo = false;
+			pincel.textContent = "PINCEL DESACTIVADO";
+		} else {
 			for (const fila of zonaDibujo.children) {
 				for (const celda of fila.children) {
-					celda.addEventListener("mouseover",pintar);
+					celda.addEventListener("mouseover", pintar);
 				}
 			}
-			pincelActivo=true;
-			pincel.textContent="PINCEL ACTIVADO";
+			pincelActivo = true;
+			pincel.textContent = "PINCEL ACTIVADO";
 		}
 	}
 	function pintar(e) {
-		let color=document.querySelector(".seleccionado");
-		if(pincelActivo){
-			if(e.target.classList.length>1){
-				e.target.classList.remove(e.target.classList[1]);
-			}
+		let color = document.querySelector(".seleccionado");
+			e.target.classList.remove(e.target.classList.item(1));
 			e.target.classList.add(color.classList[0]);
-		}
 	}
 	function borrarDibujo(e) {
 		e.preventDefault();
 		for (const fila of zonaDibujo.children) {
 			for (const celda of fila.children) {
-				celda.classList.add("color6");
+				celda.classList.remove(celda.classList.item(1));
 			}
 		}
 	}
