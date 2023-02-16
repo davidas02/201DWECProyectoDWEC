@@ -10,7 +10,7 @@ let apellidoOK = false;
 let emailOK = false;
 let nifOK = false;
 //Validar Nombre
-nombre.addEventListener("change", validarNombre);
+nombre.addEventListener("keyup", validarNombre);
 function validarNombre(e) {
     let regexp = /^[A-Z a-z]{2,}$/;
     if (regexp.test(e.target.value)) {
@@ -23,7 +23,7 @@ function validarNombre(e) {
     }
 }
 //validar Apellidos
-apellidos.addEventListener("change", validarApellido);
+apellidos.addEventListener("keyup", validarApellido);
 function validarApellido(e) {
     let regexp = /^[A-Z a-z]{2,}$/;
     if (regexp.test(e.target.value)) {
@@ -36,7 +36,7 @@ function validarApellido(e) {
     }
 }
 //validar Email
-email.addEventListener("change",validarEmail);
+email.addEventListener("keyup",validarEmail);
 function validarEmail(e) {
     let regexp=/^[a-z._]+[@][a-z._]+$/;
     if (regexp.test(e.target.value)) {
@@ -49,7 +49,7 @@ function validarEmail(e) {
     }
 }
 //validar NIF
-nif.addEventListener("change", validarNif);
+nif.addEventListener("keyup", validarNif);
 function validarNif(e) {
     let patron = /^(([XYZ]|[0-9])[0-9]{7})([A-Z])$/;
     if (patron.test(e.target.value)&&comprobarLetra(e.target.value)) {
