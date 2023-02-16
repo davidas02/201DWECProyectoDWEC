@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoría DOM</title>
+</head>
+
+<body>
+    <section id="s1">
+        <h1 class="titulo">DOM</h1>
+        <p>Ejemplo de documento <strong>DOM</strong> en forma de árbol</p>
+    </section>
+    <section id="s2">
+        <h2>Sección 2</h2>
+        <p>Esto es un párrafo de texto de la sección 2</p>
+    </section>
+    <script>
+        document.getElementById("s1");//Selecciona el elemento con ese id.
+        document.getElementsByTagName("p");//Devuelve todos los p del document.
+        let seccion1 = document.getElementById("s1");
+        seccion1.getElementsByTagName("p");//Devuelve todos los p de la seccion.
+        document.getElementsByClassName("titulo");//Selecciona el elemento con esa clase.
+        document.querySelectorAll("section p");//Selecciona con selector css.
+        document.querySelector("section p");//Selecciona con selector css buscando la primera ocurrencia de aparición.
+
+        seccion1.getAttribute("class");//Devuelve el atributo del elemento.
+        seccion1.setAttribute("class", "otraSeccion");//Añadir o modificar un valor del atributo.
+        seccion1.removeAttribute("class");//Elimina un atributo.
+        seccion1.toggleAttribute("class");//Si encuentra el atributo lo elimina pero si no lo encuentra lo crea.
+        seccion1.hasAttribute("id");//Devuelve un booleano en funcion de si el elemento tiene o no ese atributo.
+        let listaAtributos = seccion1.attributes;//Devuelve una lista de atributos.
+
+        document.getElementsByTagName("p")[0].textContent = "Parrafo modificado <strong>Manuel Martín Alonso</strong>";//Modificar el texto de un elemento.
+        document.getElementsByTagName("p")[0].innerHTML = "Parrafo modificado <strong>Manuel Martín Alonso</strong>";//Modificar el texto de un elemento interpretando etiquetas html.
+
+        document.getElementsByTagName("p")[0].style.color = "red";//Modifica un estilo a un elemento seleccionado.
+        document.getElementsByTagName("p")[0].style["color"] = "red";//Modifica un estilo a un elemento seleccionado.
+        let parrafo1 = document.getElementsByTagName("p")[0];
+        window.getComputedStyle(parrafo1);//Devuelve un objeto con los estilos css que se están aplicando en un elemento concreto.
+
+        seccion1.className;//Muestra el nombre de la clase seleccionada.
+        let listaClases = seccion1.classList;//Devuelve una lista con las clases de un elemento.
+        listaClases.add("seccion");//Añade una clase a un elemento.
+        listaClases.remove("seccion");//Elimina una clase a un elemento.
+        listaClases.toggle("seccion");//Añadir o quitar una clase de un elemento alternativamente.
+        listaClases.contains("seccion");//Devuelve true o false en funcion de si un elemento tiene una clase.
+        listaClases.replace("seccion", "nuevaSeccion");//Reemplaza una clase.
+
+        //Acceder a nodos hijos de un elemento: childNodes y children.
+        seccion1.childNodes.length;//Propiedad lenght.
+        seccion1.children.length;//Propiedad lenght.
+        for (const iterator of seccion1.childNodes) {//Mostrar el contenido de la lista con childNodes.
+            alert("Nombre: " + iterator.nodeName + " - " + "Tipo de nodo: " + iterator.nodeType + " - " + "Valor: " + iterator.nodeValue);
+        }
+        for (const iterator2 of seccion1.children) {//Mostrar el contenido de la lista con children. "children" devuelve los nodos hijos que sean de tipo elemento.
+            alert("Nombre: " + iterator2.nodeName + " - " + "Tipo de nodo: " + iterator2.nodeType + " - " + "Valor: " + iterator2.nodeValue);
+        }
+        //firstChild y firstElementChild - primer hijo.
+        alert("Nombre: " + seccion1.firstChild.nodeName + " - " + "Tipo de nodo: " + seccion1.firstChild.nodeType + " - " + "Valor: " + seccion1.firstChild.nodeValue);
+        alert("Nombre: " + seccion1.firstElementChild.nodeName + " - " + "Tipo de nodo: " + seccion1.firstElementChild.nodeType + " - " + "Valor: " + seccion1.firstElementChild.nodeValue);
+        //lastChild y lastElementChild - último hijo.
+        alert("Nombre: " + seccion1.lastChild.nodeName + " - " + "Tipo de nodo: " + seccion1.lastChild.nodeType + " - " + "Valor: " + seccion1.lastChild.nodeValue);
+        alert("Nombre: " + seccion1.lastElementChild.nodeName + " - " + "Tipo de nodo: " + seccion1.lastElementChild.nodeType + " - " + "Valor: " + seccion1.lastElementChild.nodeValue);
+        //nextSibling y nextElementSibling - siguiente hermano.
+        alert("Nombre: " + seccion1.nextSibling.nodeName + " - " + "Tipo de nodo: " + seccion1.nextSibling.nodeType + " - " + "Valor: " + seccion1.nextSibling.nodeValue);
+        alert("Nombre: " + seccion1.nextElementSibling.nodeName + " - " + "Tipo de nodo: " + seccion1.nextElementSibling.nodeType + " - " + "Valor: " + seccion1.nextElementSibling.nodeValue);
+        //previousSibling y previousElementSibling - hermano anterior.
+        alert("Nombre: " + seccion1.previousSibling.nodeName + " - " + "Tipo de nodo: " + seccion1.previousSibling.nodeType + " - " + "Valor: " + seccion1.previousSibling.nodeValue);
+        alert("Nombre: " + seccion1.previousElementSibling.nodeName + " - " + "Tipo de nodo: " + seccion1.previousElementSibling.nodeType + " - " + "Valor: " + seccion1.previousElementSibling.nodeValue);
+        //parentNode - nodo padre del actual.
+        alert("Nombre: " + seccion1.parentNode.nodeName + " - " + "Tipo de nodo: " + seccion1.parentNode.nodeType + " - " + "Valor: " + seccion1.parentNode.nodeValue);
+        //childElementCount - número de elementos hijos.
+        alert(seccion1.childElementCount);
+
+        //CREACIÓN DE NODOS CON createElement y createTextNode.
+        let nuevoParrafo = document.createElement("p");
+        nuevoParrafo.innerHTML = "Soy el nuevo parrafo";//Añadir texto a un elemento mediante innerHTML.
+        let texto = document.createTextNode("Texto añadido mediante un nodo");//Añadir texto a un elemento mediante createTextNode.
+        nuevoParrafo.appendChild(texto);
+        seccion1.appendChild(nuevoParrafo);//Añadir hijo al árbol de directorios DOM.
+        //Método insertBefore - insertar un nodo antes de algo.
+        seccion1.insertBefore(nuevoParrafo,seccion1.children[0]);
+        //Método replaceChild - reemplazar un nodo por otro.
+        seccion1.replaceChild(nuevoParrafo,seccion1.lastElementChild);//Se puede recoger una copia del nodo sustituido.
+        //Método removeChild - Para eliminar un elemento.
+        seccion1.removeChild(seccion1.children[0]);//Se puede recoger una copia del nodo eliminado.
+        //TEMPORIZADORES
+        setTimeout(()=>alert("Hola Caracola"),5000);
+        var idTemp = setTimeout(function(){
+
+        },5000);
+        clearTimeout(idTemp);
+        var contador=0;
+        var idIntervalo = setInterval(()=>{
+            alert("Hola Caracola");
+            contador++;
+            if (contador==4) {
+                clearInterval(idIntervalo);
+            }
+        },2000);
+        clearTimeout(idTemp);
+    </script>
+</body>
+
+</html>
